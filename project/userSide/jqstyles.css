@@ -1,0 +1,9 @@
+.recipie{
+    border-top: 1px dotted blue;
+    margin-bottom: 3px;
+}
+#addNewBtn{
+    position: fixed;
+    right: 1em;
+    bottom: 2em;
+}

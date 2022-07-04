@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./jqstyle.css" />
+  </head>
+  <div>
+    <div class="container">
+      <h1>Expense Tracking API</h1>
+      <!-- Button trigger modal -->
+      <!--  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="updateModal">
+            Launch
+          </button> -->
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="updateModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="updateRecord"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Update Record</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <input type="hidden" id="updateID" /> <br />
+              <div class="form-group">
+                <label for="updateTitle">Update Title</label>
+                <input
+                  type="text"
+                  name="updateTitle"
+                  id="updateTitle"
+                  class="form-control"
+                  placeholder="Title"
+                  aria-describedby="updateTitleHelpID"
+                />
+                <small id="updateTitleHelpID" class="text-muted"
+                  >Update Title</small
+                >
+              </div>
+              <div class="form-group">
+                <label for="updatePrice">Update Price</label>
+                <input
+                  type="number"
+                  name="updatePrice"
+                  id="updatePrice"
+                  class="form-control"
+                  placeholder="Price"
+                  aria-describedby="updatePriceHelpID"
+                />
+                <small id="updatePriceHelpID" class="text-muted"
+                  >Update Price</small
+                >
+              </div>
+              <div class="form-group">
+                <label for="updateBody">Update Body</label>
+                <textarea
+                  class="form-control"
+                  name="updateBody"
+                  id="updateBody"
+                  rows="3"
+                ></textarea>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" id="updateSave" class="btn btn-primary">
+                Update
+              </button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- test model -->
+      <!-- Button trigger modal -->
+      <button
+        type="button"
+        class="btn btn-primary btn-sm mb-3"
+        data-toggle="modal"
+        data-target="#addRecipie"
+      >
+        Add Entry
+      </button>
+
+      <!-- Modal For Add Recipie-->
+      <div
+        class="modal fade"
+        id="addRecipie"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="Add Recipie"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Add Entry</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="title">Title</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="title"
+                  id="title"
+                  aria-describedby="titleHelp"
+                  placeholder="Title of the Entry"
+                />
+                <small id="titleHelp" class="form-text text-muted"
+                  >Enter title of entry</small
+                >
+              </div>
+              <div class="form-group">
+                <label for="price">Price</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  name="price"
+                  id="price"
+                  aria-describedby="priceHelp"
+                  placeholder="price of the Entry"
+                />
+                <small id="priceHelp" class="form-text text-muted"
+                  >Enter price of entry</small
+                >
+              </div>
+              <div class="form-group">
+                <label for="body">Entry Description</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="body"
+                  id="body"
+                  aria-describedby="bodyHelp"
+                  placeholder="Enter the description/body"
+                />
+                <small id="bodyHelp" class="form-text text-muted"
+                  >Enter Description</small
+                >
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary btn-sm"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <!-- <button type="button" id="addSave" class="btn btn-primary">
+                    Save
+                  </button> -->
+              <button id="addBtn" class="btn btn-info btn-sm">Add Entry</button>
+              <!-- <button id="addBtn" class="btn btn-info">Add Recipie</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- We left the previous learning by mistake, so going back to clear the concepts -->
+      <!-- <div id="recipie">Loading...</div> -->
+      <div id="recipie">
+        <div class="recipie" data-id="629fcae667820bdaa2394164">
+          <h3>Nashta</h3>
+          <h5>Rs. 100</h5>
+          <p>
+            <button class="btn btn-danger btn-sm float-right">Delete</button
+            ><button class="ml-3 btn btn-warning btn-sm float-right">
+              Edit</button
+            >Nashta with anda prathas
+          </p>
+        </div>
+        <div class="recipie" data-id="629fcbcd67820bdaa2394166">
+          <h3>Lunch</h3>
+          <h5>Rs. 390</h5>
+          <p>
+            <button class="btn btn-danger btn-sm float-right">Delete</button
+            ><button class="ml-3 btn btn-warning btn-sm float-right">
+              Edit</button
+            >Lunch with chicken biryani. Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Libero vero sed sunt cumque accusamus placeat ab
+            ipsum labore omnis voluptatum. Quod quos quis ducimus reprehenderit
+            voluptatibus voluptas beatae inventore quisquam!
+          </p>
+        </div>
+        <div class="recipie" data-id="629fcbcd67820bdaa2394166">
+          <h3>Birthday party</h3>
+          <h5>Rs. 3000</h5>
+          <p>
+            <button class="btn btn-danger btn-sm float-right">Delete</button
+            ><button class="ml-3 btn btn-warning btn-sm float-right">
+              Edit</button
+            >Enjoyed at androon lahore
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </div>
+</html>
